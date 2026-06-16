@@ -89,4 +89,4 @@ php tests/test_parser.php
 
 **Nilesh Mishra**
 *   **LinkedIn:** [linkedin.com/in/nileshmishra46](https://www.linkedin.com/in/nileshmishra46)
-*   **GitHub:** [@nileshmishra46](https://github.com/nileshmishra46)
+*   **GitHub:** [https://github.com/nileshmishra46]
