@@ -4,15 +4,6 @@ An interactive, premium web-based diagnostic tool designed to parse, compare, an
 
 ---
 
-## 📸 Screenshots
-
- <img width="1877" height="1071" alt="image" src="https://github.com/user-attachments/assets/a99703f7-c947-42d7-bf3d-91203173832d" />
-  <img width="1877" height="1072" alt="image" src="https://github.com/user-attachments/assets/339b5677-48da-4362-bc50-40fb0e601dec" />
- 
-
-
----
-
 ## 🚀 Key Features
 
 *   **Side-by-Side Plan Comparison:** Compare physical and logical execution operators side-by-side.
@@ -83,6 +74,14 @@ php tests/test_parser.php
 ├── PlanComparisionLauncher.exe# Local desktop launcher EXE
 └── ExecutionPlanComparator_Standalone.exe # Portable standalone application EXE
 ```
+
+## 📸 Screenshots
+
+ <img width="1877" height="1071" alt="image" src="https://github.com/user-attachments/assets/a99703f7-c947-42d7-bf3d-91203173832d" />
+ <img width="1885" height="1072" alt="image" src="https://github.com/user-attachments/assets/94a05696-d22c-4556-ad1a-c42a4577212d" />
+ <img width="1885" height="1082" alt="image" src="https://github.com/user-attachments/assets/4b7b3335-5add-4c8a-989f-591fd18cb1b8" />
+ <img width="1892" height="1072" alt="image" src="https://github.com/user-attachments/assets/d628e0ac-0ac8-41db-92db-76e37d80deb6" />
+ <img width="1877" height="1072" alt="image" src="https://github.com/user-attachments/assets/339b5677-48da-4362-bc50-40fb0e601dec" />
 
 ---
 
