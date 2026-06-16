@@ -77,6 +77,9 @@ php tests/test_parser.php
 
 ## 📸 Screenshots
 
+Just open PlanComparisionLauncher.exe to begin
+
+ <img width="907" height="606" alt="image" src="https://github.com/user-attachments/assets/a7319e86-1289-4398-86c8-c0bfd902220f" />
  <img width="1877" height="1071" alt="image" src="https://github.com/user-attachments/assets/a99703f7-c947-42d7-bf3d-91203173832d" />
  <img width="1885" height="1072" alt="image" src="https://github.com/user-attachments/assets/94a05696-d22c-4556-ad1a-c42a4577212d" />
  <img width="1885" height="1082" alt="image" src="https://github.com/user-attachments/assets/4b7b3335-5add-4c8a-989f-591fd18cb1b8" />
