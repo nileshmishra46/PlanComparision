@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.5" Build="15.0.2000.5">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT p.ProductName, s.SaleDate, s.Quantity FROM dbo.Products p INNER JOIN dbo.Sales s ON p.ProductID = s.ProductID WHERE p.ProductCode = @ProdCode" StatementId="1" StatementSubTreeCost="10.45" StatementEstRows="5" StatementOptmLevel="FULL">
+          <QueryPlan DegreeOfParallelism="8" MemoryGrantInfo="SerialRequiredMemory='32768' SerialDesiredMemory='131072' GrantedMemory='32768' MaxUsedMemory='4096'">
+            <Warnings>
+              <ColumnsWithNoStatistics>
+                <ColumnReference Database="[AdventureWorks]" Schema="[dbo]" Table="[Sales]" Column="[ProductID]" />
+              </ColumnsWithNoStatistics>
+              <PlanAffectingConvert ConvertIssue="Cardinality Estimate" Expression="CONVERT_IMPLICIT(nvarchar(50), [@ProdCode], 0)" />
+              <MemoryGrantWarning GrantWarningKind="Excessive Grant" RequestedMemory="32768" MaxUsedMemory="4096" />
+            </Warnings>
+            <MissingIndexes>
+              <MissingIndexGroup Impact="89.5">
+                <MissingIndex Database="[AdventureWorks]" Schema="[dbo]" Table="[Sales]">
+                  <ColumnGroup Usage="EQUALITY">
+                    <Column Name="[ProductID]" />
+                  </ColumnGroup>
+                  <ColumnGroup Usage="INCLUDE">
+                    <Column Name="[SaleDate]" />
+                    <Column Name="[Quantity]" />
+                  </ColumnGroup>
+                </MissingIndex>
+              </MissingIndexGroup>
+            </MissingIndexes>
+            <RelOp NodeId="0" PhysicalOp="Hash Match" LogicalOp="Inner Join" EstimatedRows="10" EstimatedIO="0.02" EstimatedCPU="0.15" EstimatedTotalSubtreeCost="10.45" Parallel="1">
+              <Hash>
+                <RelOp NodeId="1" PhysicalOp="Clustered Index Scan" LogicalOp="Clustered Index Scan" EstimatedRows="100000" EstimatedIO="2.50" EstimatedCPU="0.10" EstimatedTotalSubtreeCost="2.60" Parallel="1">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Products]" Index="[PK_Products]" />
+                  </IndexScan>
+                </RelOp>
+                <RelOp NodeId="2" PhysicalOp="Sort" LogicalOp="Sort" EstimatedRows="280000" EstimatedIO="3.40" EstimatedCPU="0.85" EstimatedTotalSubtreeCost="5.25" Parallel="1">
+                  <Warnings SpillToTempDb="true">
+                    <SpillToTempDb SpillType="Sort" SpilledThreadCount="8" MaxSpilledRowDataKB="65536" />
+                  </Warnings>
+                  <Sort>
+                    <RelOp NodeId="3" PhysicalOp="Table Scan" LogicalOp="Table Scan" EstimatedRows="10" EstimatedIO="2.10" EstimatedCPU="0.05" EstimatedTotalSubtreeCost="2.15" Parallel="1">
+                      <RunTimeInformation>
+                        <RunTimeRanges>
+                          <RunTimeInformation ActualRows="280000" ActualLoops="8" ActualRowsRead="280000" />
+                        </RunTimeRanges>
+                      </RunTimeInformation>
+                      <IndexScan Lookup="0">
+                        <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Sales]" />
+                      </IndexScan>
+                    </RelOp>
+                  </Sort>
+                </RelOp>
+              </Hash>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

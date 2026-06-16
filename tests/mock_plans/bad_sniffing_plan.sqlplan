@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.5" Build="15.0.2000.5">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT OrderID, CustomerID, OrderStatus FROM dbo.Orders WHERE OrderStatus = @Status" StatementId="1" StatementSubTreeCost="4.85" StatementEstRows="5" StatementOptmLevel="FULL">
+          <QueryPlan DegreeOfParallelism="1" MemoryGrantInfo="SerialRequiredMemory='1024' SerialDesiredMemory='2048'">
+            <RelOp NodeId="0" PhysicalOp="Index Seek" LogicalOp="Index Seek" EstimatedRows="5" EstimatedIO="0.003" EstimatedCPU="0.0001" EstimatedTotalSubtreeCost="4.85" Parallel="0">
+              <RunTimeInformation>
+                <RunTimeRanges>
+                  <RunTimeInformation ActualRows="100000" ActualLoops="1" ActualRowsRead="100000" />
+                </RunTimeRanges>
+              </RunTimeInformation>
+              <IndexScan Lookup="0">
+                <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Orders]" Index="[IX_Orders_Status]" />
+              </IndexScan>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

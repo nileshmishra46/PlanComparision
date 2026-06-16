@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.5" Build="15.0.2000.5">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT c.CustomerName, o.OrderDate FROM dbo.Customers c INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID WHERE c.CustomerID = @CustID" StatementId="1" StatementSubTreeCost="5.256" StatementEstRows="1" StatementOptmLevel="FULL">
+          <QueryPlan DegreeOfParallelism="4" MemoryGrantInfo="SerialRequiredMemory='16384' SerialDesiredMemory='65536' GrantedMemory='16384' MaxUsedMemory='8192'">
+            <Warnings>
+              <ColumnsWithNoStatistics>
+                <ColumnReference Database="[AdventureWorks]" Schema="[dbo]" Table="[Orders]" Column="[CustomerID]" />
+              </ColumnsWithNoStatistics>
+              <PlanAffectingConvert ConvertIssue="Cardinality Estimate" Expression="CONVERT_IMPLICIT(nvarchar(50), [@CustID], 0)" />
+            </Warnings>
+            <MissingIndexes>
+              <MissingIndexGroup Impact="85.4">
+                <MissingIndex Database="[AdventureWorks]" Schema="[dbo]" Table="[Orders]">
+                  <ColumnGroup Usage="EQUALITY">
+                    <Column Name="[CustomerID]" />
+                  </ColumnGroup>
+                  <ColumnGroup Usage="INCLUDE">
+                    <Column Name="[OrderDate]" />
+                    <Column Name="[ShipDate]" />
+                  </ColumnGroup>
+                </MissingIndex>
+              </MissingIndexGroup>
+            </MissingIndexes>
+            <RelOp NodeId="0" PhysicalOp="Hash Match" LogicalOp="Inner Join" EstimatedRows="10" EstimatedIO="0.01" EstimatedCPU="0.12" EstimatedTotalSubtreeCost="5.256" Parallel="1">
+              <Hash>
+                <RelOp NodeId="1" PhysicalOp="Clustered Index Scan" LogicalOp="Clustered Index Scan" EstimatedRows="50000" EstimatedIO="1.45" EstimatedCPU="0.05" EstimatedTotalSubtreeCost="1.50" Parallel="1">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Customers]" Index="[PK_Customers]" />
+                  </IndexScan>
+                </RelOp>
+                <RelOp NodeId="2" PhysicalOp="Sort" LogicalOp="Sort" EstimatedRows="250000" EstimatedIO="2.10" EstimatedCPU="0.52" EstimatedTotalSubtreeCost="3.62" Parallel="1">
+                  <Warnings SpillToTempDb="true">
+                    <SpillToTempDb SpillType="Sort" SpilledThreadCount="4" MaxSpilledRowDataKB="32768" />
+                  </Warnings>
+                  <Sort>
+                    <RelOp NodeId="3" PhysicalOp="Table Scan" LogicalOp="Table Scan" EstimatedRows="2" EstimatedIO="1.02" EstimatedCPU="0.01" EstimatedTotalSubtreeCost="1.03" Parallel="1">
+                      <RunTimeInformation>
+                        <RunTimeRanges>
+                          <RunTimeInformation ActualRows="150000" ActualLoops="4" ActualRowsRead="150000" />
+                        </RunTimeRanges>
+                      </RunTimeInformation>
+                      <IndexScan Lookup="0">
+                        <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Orders]" />
+                      </IndexScan>
+                    </RelOp>
+                  </Sort>
+                </RelOp>
+              </Hash>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

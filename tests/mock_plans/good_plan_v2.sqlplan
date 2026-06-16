@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.5" Build="15.0.2000.5">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT p.ProductName, s.SaleDate, s.Quantity FROM dbo.Products p INNER JOIN dbo.Sales s ON p.ProductID = s.ProductID WHERE p.ProductCode = @ProdCode" StatementId="1" StatementSubTreeCost="0.0082" StatementEstRows="5" StatementOptmLevel="FULL">
+          <QueryPlan DegreeOfParallelism="1" MemoryGrantInfo="SerialRequiredMemory='1024' SerialDesiredMemory='2048'">
+            <RelOp NodeId="0" PhysicalOp="Nested Loops" LogicalOp="Inner Join" EstimatedRows="5" EstimatedIO="0" EstimatedCPU="0.0001" EstimatedTotalSubtreeCost="0.0082" Parallel="0">
+              <NestedLoops>
+                <RelOp NodeId="1" PhysicalOp="Index Seek" LogicalOp="Index Seek" EstimatedRows="1" EstimatedIO="0.00312" EstimatedCPU="0.00016" EstimatedTotalSubtreeCost="0.00328" Parallel="0">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Products]" Index="[IX_Products_ProductCode]" />
+                  </IndexScan>
+                </RelOp>
+                <RelOp NodeId="2" PhysicalOp="Index Seek" LogicalOp="Index Seek" EstimatedRows="5" EstimatedIO="0.00312" EstimatedCPU="0.00016" EstimatedTotalSubtreeCost="0.00328" Parallel="0">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Sales]" Index="[IX_Sales_ProductID]" />
+                  </IndexScan>
+                </RelOp>
+              </NestedLoops>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

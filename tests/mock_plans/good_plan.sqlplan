@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.5" Build="15.0.2000.5">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="SELECT c.CustomerName, o.OrderDate FROM dbo.Customers c INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID WHERE c.CustomerID = @CustID" StatementId="1" StatementSubTreeCost="0.0065" StatementEstRows="1" StatementOptmLevel="FULL">
+          <QueryPlan DegreeOfParallelism="1" MemoryGrantInfo="SerialRequiredMemory='1024' SerialDesiredMemory='2048'">
+            <RelOp NodeId="0" PhysicalOp="Nested Loops" LogicalOp="Inner Join" EstimatedRows="1" EstimatedIO="0" EstimatedCPU="0.0001" EstimatedTotalSubtreeCost="0.0065" Parallel="0">
+              <NestedLoops>
+                <RelOp NodeId="1" PhysicalOp="Clustered Index Seek" LogicalOp="Clustered Index Seek" EstimatedRows="1" EstimatedIO="0.00312" EstimatedCPU="0.00016" EstimatedTotalSubtreeCost="0.00328" Parallel="0">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Customers]" Index="[PK_Customers]" />
+                  </IndexScan>
+                </RelOp>
+                <RelOp NodeId="2" PhysicalOp="Index Seek" LogicalOp="Index Seek" EstimatedRows="1.2" EstimatedIO="0.00312" EstimatedCPU="0.00016" EstimatedTotalSubtreeCost="0.00328" Parallel="0">
+                  <IndexScan Lookup="0">
+                    <Object Database="[AdventureWorks]" Schema="[dbo]" Table="[Orders]" Index="[IX_Orders_CustomerID]" />
+                  </IndexScan>
+                </RelOp>
+              </NestedLoops>
+            </RelOp>
+          </QueryPlan>
+        </StmtSimple>
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>
