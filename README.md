@@ -8,7 +8,10 @@ An interactive, premium web-based diagnostic tool designed to parse, compare, an
 
 | Upload & Input Interface | Side-by-Side Comparison Report |
 | --- | --- |
-| ![Dashboard Screenshot](https://raw.githubusercontent.com/nileshmishra46/PlanComparision/main/assets/dashboard.png) | ![Report Screenshot](https://raw.githubusercontent.com/nileshmishra46/PlanComparision/main/assets/report.png) |
+| <img width="1877" height="1071" alt="image" src="https://github.com/user-attachments/assets/a99703f7-c947-42d7-bf3d-91203173832d" />
+ | <img width="1877" height="1072" alt="image" src="https://github.com/user-attachments/assets/339b5677-48da-4362-bc50-40fb0e601dec" />
+ |
+
 
 ---
 
