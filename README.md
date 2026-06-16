@@ -91,5 +91,5 @@ Just open PlanComparisionLauncher.exe to begin
 ## 👨‍💻 Author
 
 **Nilesh Mishra**
-*   **LinkedIn:** [linkedin.com/in/nileshmishra46](https://www.linkedin.com/in/nileshmishra46)
-*   **GitHub:** [https://github.com/nileshmishra46]
+*   **LinkedIn:** https://www.linkedin.com/in/nileshmishra46
+*   **GitHub:** https://github.com/nileshmishra46
